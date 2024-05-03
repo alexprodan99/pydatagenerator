@@ -1,5 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "pydatagenerator"
-authors = [{ name = "alexprodan99", email = "prodanalexandru1999@gmail.com" }]
+authors = [
+    { name = "Alexandru Prodan", email = "prodanalexandru1999@gmail.com" },
+]
+maintainers = [
+    { name = "Alexandru Prodan", email = "prodanalexandru1999@gmail.com" },
+]
 version = "0.0.0"
 description = "Coming soon"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+keywords = ["pydatagenerator", "data", "data-generator", "template"]
+
+[project.urls]
+Homepage = "https://github.com/alexprodan99/pydatagenerator"
+Documentation = "https://github.com/alexprodan99/pydatagenerator/wiki"
+Repository = "https://github.com/alexprodan99/pydatagenerator"
+Issues = "https://github.com/alexprodan99/pydatagenerator/issues"

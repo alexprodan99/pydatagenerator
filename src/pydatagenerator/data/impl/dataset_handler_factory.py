@@ -22,7 +22,7 @@ class DatasetHandlerFactory(AbstractDataSetHandler):
             sys.exit(-1)
         handler = self.__classes.get(dataset_info['type'])
         if not handler:
-            sys.stderr.write(f'Error: Unknown type {dataset_info['type']}')
+            sys.stderr.write(f"Error: Unknown type {dataset_info['type']}")
             sys.exit(-1)
         return handler(dataset_info)
 

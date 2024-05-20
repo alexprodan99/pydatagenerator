@@ -63,6 +63,6 @@ disable = [
 
 [project.urls]
 Homepage = "https://github.com/alexprodan99/pydatagenerator"
-Documentation = "https://github.com/alexprodan99/pydatagenerator/wiki"
+Documentation = "https://alexprodan99.github.io/pydatagenerator"
 Repository = "https://github.com/alexprodan99/pydatagenerator"
 Issues = "https://github.com/alexprodan99/pydatagenerator/issues"

@@ -51,6 +51,27 @@ jobs:
       with:
         name: coverage-report
         path: htmlcov
+  
+  generate-executable:
+    name: >-
+      Generate package 📦 executable
+    runs-on: ubuntu-latest
+  
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+    - name: Install dependencies
+      run: pip install -e ".[dev]"
+    - name: Create executable
+      run: pyinstaller --onefile --name pydatagenerator scripts/data_generator.py
+    - name: Upload executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: pydatagenerator
+        path: dist
 
   publish-to-pypi:
     name: >-

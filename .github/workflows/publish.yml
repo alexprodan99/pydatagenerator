@@ -9,7 +9,6 @@ on:
   pull_request:
     types: [opened, reopened]
 
-
 jobs:
   build:
     name: Build distribution 📦
@@ -61,6 +60,9 @@ jobs:
   generate-executable:
     name: >-
       Generate package 📦 executable
+    needs:
+    - build
+    - test
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

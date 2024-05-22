@@ -60,6 +60,9 @@ class XmlParser(AbstractXmlParser):
         for _ in range(iterations):
             for dataset in datasets:
                 dataset_info = XmlParserUtil.collect_attributes(dataset)
+                categories = dataset.xpath('//categories')
+                if categories:
+                    dataset_info['categories'] = [category.get('value') for category in categories]
                 dataset_handler = handler_factory.get_dataset_handler(dataset_info)
                 name = dataset_info['name']
                 if name in data_info:

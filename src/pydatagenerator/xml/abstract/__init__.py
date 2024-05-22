@@ -1,1 +1,1 @@
-from pydatagenerator.xml.abstract.abstract_xml_parser import AbstractXmlParser
+from .abstract_xml_parser import AbstractXmlParser

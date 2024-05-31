@@ -3,7 +3,7 @@ from pydatagenerator.data.impl.dataset_handler_factory import DatasetHandlerFact
 
 def test_generate_sequence_data():
     handler = DatasetHandlerFactory().get_dataset_handler({
-        'type': 'type.sequence-dataset',
+        'type': 'type.sequence-number-dataset',
         'name': 'count',
         'start': 0,
         'increment': 5

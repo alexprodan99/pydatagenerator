@@ -29,7 +29,6 @@ class RandomNumberDataSet(AbstractDataSet):
         Returns:
             object: The result obtained after processing the dataset_info
         """
-        self.validate_dataset_info()
-        is_floating = self._dataset_info['floating'] and self._dataset_info['floating'].lower() == 'true'
+        is_floating = 'floating' in self._dataset_info and self._dataset_info['floating'].lower() == 'true'
         func = random.uniform if is_floating else random.randint
         return func(int(self._dataset_info['min']), int(self._dataset_info['max']))

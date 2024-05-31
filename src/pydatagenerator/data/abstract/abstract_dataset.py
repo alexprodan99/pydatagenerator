@@ -18,6 +18,7 @@ class AbstractDataSet(abc.ABC):
         """Creates a new data set
         """
         self._dataset_info = dataset_info
+        self.validate_dataset_info()
 
     @property
     def dataset_info(self) -> Dict[str, object]:

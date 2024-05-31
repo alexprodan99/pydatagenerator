@@ -1,21 +1,20 @@
-from typing import Dict, List
+import random
 from pydatagenerator.data.abstract import AbstractDataSet
 
-
-class SequenceDataSet(AbstractDataSet):
-    """SequenceDataSet
+class RandomCategoricalDataSet(AbstractDataSet):
+    """RandomCategoricalDataSet
     """
-    type = 'type.sequence-dataset'
+    type = 'type.random-categorical-dataset'
 
-    def required_fields(self) -> List[str]:
+    def required_fields(self):
         """Returns the required fields for the current data set
 
         Returns:
             List[str]: List of required fields for the current data set
         """
-        return ['start', 'increment']
+        return ['categories']
 
-    def optional_fields(self) -> List[str]:
+    def optional_fields(self):
         """Returns the optional fields for the current data set
 
         Returns:
@@ -23,17 +22,11 @@ class SequenceDataSet(AbstractDataSet):
         """
         return []
 
-    def __init__(self, dataset_info: Dict[str, object]):
-        super().__init__(dataset_info)
-        self.__val = int(dataset_info['start']) - int(dataset_info['increment'])
-
     def handle(self) -> object:
         """Process the given dataset_info and returns a result out of it
 
         Returns:
             object: The result obtained after processing the dataset_info
         """
-        self.validate_dataset_info()
-        increment = int(self._dataset_info['increment'])
-        self.__val += increment
-        return self.__val
+        categories = self._dataset_info['categories']
+        return categories[random.randint(0, len(categories)-1)]

@@ -42,44 +42,39 @@ def test_validate_dataset_info_missing_default_required_properties():
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == -1
 
-    handler = DatasetHandlerFactory().get_dataset_handler({
-        'type': 'type.random-number-dataset',
-        'min': '10',
-        'max': '20',
-        'floating': 'true'
-    })
+    
 
     with pytest.raises(SystemExit) as pytest_wrapped_e:
-        value = handler.handle()
-        assert value is None
+        handler = DatasetHandlerFactory().get_dataset_handler({
+            'type': 'type.random-number-dataset',
+            'min': '10',
+            'max': '20',
+            'floating': 'true'
+        })
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == -1
 
 
 def test_validate_dataset_info_missing_random_number_required_property():
-    handler = DatasetHandlerFactory().get_dataset_handler({
-        'type': 'type.random-number-dataset',
-        'name': 'random_data_set',
-        'max': '20',
-        'floating': 'true'
-    })
-
     with pytest.raises(SystemExit) as pytest_wrapped_e:
-        value = handler.handle()
-        assert value is None
+        handler = DatasetHandlerFactory().get_dataset_handler({
+            'type': 'type.random-number-dataset',
+            'name': 'random_data_set',
+            'max': '20',
+            'floating': 'true'
+        })
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == -1
 
-    handler = DatasetHandlerFactory().get_dataset_handler({
-        'type': 'type.random-number-dataset',
-        'name': 'random_data_set',
-        'min': '10',
-        'floating': 'true'
-    })
+    
 
     with pytest.raises(SystemExit) as pytest_wrapped_e:
-        value = handler.handle()
-        assert value is None
+        handler = DatasetHandlerFactory().get_dataset_handler({
+            'type': 'type.random-number-dataset',
+            'name': 'random_data_set',
+            'min': '10',
+            'floating': 'true'
+        })
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == -1
 
@@ -94,17 +89,15 @@ def test_not_matching_dataset_type():
         assert pytest_wrapped_e.value.code == -1
 
 
-
 def test_unknown_random_number_property():
-    handler = DatasetHandlerFactory().get_dataset_handler({
-        'type': 'type.random-number-dataset',
-        'name': 'random_data_set',
-        'random': '10',
-        'floating': 'true'
-    })
-
     with pytest.raises(SystemExit) as pytest_wrapped_e:
-        value = handler.handle()
-        assert value is None
+        handler = DatasetHandlerFactory().get_dataset_handler({
+            'type': 'type.random-number-dataset',
+            'name': 'random_data_set',
+            'random': '10',
+            'min': 1,
+            'max': 10,
+            'floating': 'true'
+        })
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == -1

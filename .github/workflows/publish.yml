@@ -29,7 +29,7 @@ jobs:
     - name: Build a binary wheel and a source tarball ${{ matrix.os }}
       run: python3 -m build
     - name: Store the distribution packages ${{ matrix.os }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: python-package-distributions-${{ matrix.os }}
         path: dist/
@@ -52,7 +52,7 @@ jobs:
     - name: Run tests
       run: pytest
     - name: Upload coverage report ${{ matrix.os }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: coverage-report-${{ matrix.os }}
         path: htmlcov
@@ -79,7 +79,7 @@ jobs:
     - name: Create executable ${{ matrix.os }}
       run: pyinstaller --onefile --name pydatagenerator scripts/data_generator.py
     - name: Upload executable ${{ matrix.os }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: pydatagenerator-${{ matrix.os }}
         path: dist
